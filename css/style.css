@@ -1,0 +1,568 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/static/Montserrat-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/static/Montserrat-Medium.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/static/Montserrat-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: Oswald;
+    src: url("../fonts/Oswald/static/Oswald-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/static/Montserrat-Black.ttf");
+    font-weight: 900;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+}
+img {
+    border-style: none;
+    max-width: 100%;
+    display: block;
+}
+.center {
+    padding-left: calc(50vw - 585px);
+    padding-right: calc(50vw - 585px);
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+.button {
+    height: 40px;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2d5e5e;
+    border-radius: 10px;
+    color: #fff;
+    border: 3px solid transparent;
+    text-transform: none;
+    text-decoration: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.button.button--bordered {
+    background: transparent;
+    border: 3px solid #2d5e5e;
+    border-radius: 10px;
+}
+.button:hover {
+    background: transparent;
+    border-color: #2d5e5e;
+    color: #2d5e5e;
+}
+.button.button--bordered:hover {
+    background: #2d5e5e;
+    border-color: currentColor;
+    color: #fff;
+}
+/* slider */
+.slider {
+    display: flex;
+    align-items: center;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.slider__arrow {
+    border: none;
+    background: none;
+}
+.slider__arrow svg {
+    fill: #adddde;
+}
+.slider__elem {
+    display: none;
+    margin: 0 43px;
+}
+.slider__elem--active {
+    display: block;
+}
+/* slider */
+
+/* dropdown */
+.dropdown {
+    margin: 0 auto 20px;
+    max-width: 944px;
+    padding-left: 36px;
+}
+.dropdown__title {
+    font: 700 24px/1.33 "Oswald", sans-serif;
+    position: relative;
+    transition: 0.3s;
+}
+.dropdown__title svg {
+    fill: currentColor;
+    position: absolute;
+    left: -36px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+.dropdown__title::marker {
+    display: none;
+    font-size: 0;
+    color: transparent;
+}
+.dropdown[open] .dropdown__title {
+    color: #2d5e5e;
+}
+.dropdown[open] .dropdown__title svg {
+    color: #2d5e5e;
+    transform: translateY(-50%) rotate(45deg);
+}
+.dropdown__text {
+    margin: 20px 0;
+    line-height: 1.5;
+}
+/* dropdown */
+
+.header {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+}
+.logo {
+    display: block;
+    float: left;
+}
+.nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+.nav li {
+    list-style: none;
+}
+.nav__link {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.22;
+    color: #85aaab;
+    text-decoration: none;
+}
+.nav__link.nav__link--active {
+    color: #6de1e3;
+}
+/* offer */
+.offer {
+    background: url("../img/main-offer-photo.jpg");
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    line-height: 1.5;
+    padding-top: 240px;
+    padding-bottom: 160px;
+}
+.offer__title {
+    font-size: 48px;
+    margin: 0 0 55px;
+    max-width: 454px;
+}
+.offer__desc {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0 0 45px;
+    max-width: 320px;
+    font-weight: 400;
+}
+.offer .button {
+    text-transform: uppercase;
+}
+/* offer */
+
+/* services */
+.services {
+    padding-top: 60px;
+    padding-bottom: 37px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.services.services--counters {
+    background: url("../img/counter-bg.jpg") center rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: #fff;
+}
+.services.services--articles {
+    background: url("../img/articles-bg.jpg") center rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: #fff;
+}
+.services__item {
+    max-width: 300px;
+    text-align: center;
+}
+.services.services--articles .services__item {
+    text-align: left;
+    min-width: 334px;
+}
+.services__title {
+    font-size: 24px;
+    padding: 0 0 20px;
+    color: #2d5e5e;
+}
+.services.services--counters .services__title,
+.services.services--articles .services__title {
+    color: #fff;
+}
+.services.services--articles .services__title {
+    margin-bottom: 0;
+}
+.services__icon {
+    margin-bottom: 30px;
+}
+.services__counter {
+    font-weight: 900;
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 14px;
+}
+.services__header {
+    width: 100%;
+    font-size: 48px;
+    margin: 0 0 50px;
+}
+.services__cover {
+    margin-bottom: 24px;
+}
+.services__desc {
+    line-height: 1.5;
+}
+/* services */
+
+/* about */
+.about {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background: url("../img/bricks-bg.jpg") center no-repeat rgba(0, 0, 0, 0.7);
+    background-blend-mode: overlay;
+    color: #fff;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+.about__content {
+    max-width: 625px;
+}
+.about__title {
+    font-size: 36px;
+    margin: 0 0 50px;
+}
+.about__text {
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 35px;
+}
+.about__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+/* about */
+
+/* appointment */
+.appointment {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+/* appointment */
+
+/* form */
+.form {
+    max-width: 770px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 40px) 30px 40px;
+    gap: 30px;
+}
+.form__input {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 8px 20px;
+}
+.form__input::placeholder {
+    color: #000;
+}
+.form__input.form__input--textarea {
+    grid-row: 1 / 4;
+    grid-column: 2 / 3;
+    resize: none;
+}
+.form__checkbox {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+.form__checkbox_label {
+    position: relative;
+    display: inline-block;
+    padding-left: 25px;
+    font-size: 12px;
+    color: #2d5e5e;
+}
+.form__checkbox_label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    box-sizing: border-box;
+    border: 1px solid #2d5e5e;
+}
+.form__checkbox_label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    box-sizing: border-box;
+    background: #2d5e5e;
+    opacity: 0;
+    transition: 0.5s;
+}
+.form__checkbox input:focus + .form__checkbox_label {
+    outline: 1px solid #000;
+}
+.form__checkbox input:checked + .form__checkbox_label:after {
+    opacity: 1;
+}
+.form .button {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+}
+.appointment__title {
+    text-align: center;
+    font-size: 48px;
+    margin: 0 0 50px;
+}
+/* form */
+
+/* reviews */
+.reviews {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.reviews__title {
+    text-align: center;
+    font-size: 48px;
+    margin: 0 0 50px;
+}
+.reviews__item {
+    padding: 20px 25px;
+    background: #adddde;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px 32px;
+}
+.reviews__photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.reviews__photo img {
+    max-width: unset;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.reviews__name {
+    color: #2d5e5e;
+    font-size: 18px;
+}
+.reviews__text {
+    margin: 0;
+    font-weight: 300;
+    line-height: 1.5;
+}
+/* reviews */
+
+/* faq */
+.faq {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.faq__title {
+    text-align: center;
+    font-size: 48px;
+    margin: 0 0 70px;
+}
+/* faq */
+
+/* contacts */
+.contacts {
+    position: relative;
+    padding-top: 128px;
+    padding-bottom: 128px;
+}
+.contacts__map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.contacts__map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+}
+.contacts__content {
+    position: relative;
+    z-index: 2;
+    background: #adddde;
+    padding: 35px;
+    max-width: 477px;
+    margin-left: auto;
+}
+.contacts__title {
+    color: #2d5e5e;
+    font-size: 48px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+.contacts__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contacts__link {
+    text-decoration: none;
+    color: #000;
+}
+.contacts__link:hover {
+    color: #fff;
+}
+/* contacts */
+
+/* discount */
+.appointment--discount form {
+    padding: 60px auto;
+    max-width: 1170px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-content: center;
+}
+.appointment--discount .button {
+    margin: 0;
+    min-width: 370px;
+    height: 40px;
+}
+.appointment--discount .form__input {
+    min-width: 370px;
+    height: 40px;
+}
+.appointment--discount label.form__checkbox {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* discount */
+
+/* footer */
+.footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background: #2d5e5e;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.footer__contacts {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.footer__link {
+    text-decoration: none;
+    color: #fff;
+}
+.footer__link:hover {
+    text-decoration: none;
+    color: #000;
+}
+.footer__logo-link {
+    text-decoration: none;
+}
+.footer__logo {
+    fill: #fff;
+    margin-right: 10px;
+    transform: translateY(25%);
+}
+.footer__logo:hover {
+    background: #fff;
+    fill: #2d5e5e;
+}
+/* footer */
