@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/media.css" />
     </head>
     <body>
-        <header class="header center">
+        <header class="header center" id="header">
             <a class="logo" href="#">
                 <img src="img/logo.png" alt="Лого моего сайта" />
             </a>
@@ -33,7 +33,9 @@
                 <p class="offer__desc">
                     Личные, семейные и групповые консультации
                 </p>
-                <button class="button">Узнать больше</button>
+                <button class="button open-modal" data-modal="more">
+                    Узнать больше
+                </button>
             </section>
             <section class="center services">
                 <article class="services__item">
@@ -160,9 +162,12 @@
                         class="form__input"
                         placeholder="Ваш телефон *"
                     />
-                    <select class="form__input form__input--select">
-                        <option value="placeholder" selected disabled>
-                            Тема встречи *
+                    <select
+                        class="custom_select form__input form__input--select"
+                        name=""
+                    >
+                        <option value="placeholder" disabled selected>
+                            Тема встречи
                         </option>
                         <option value="1">Тема 1</option>
                         <option value="2">Тема 2</option>
@@ -217,8 +222,10 @@
             </section>
             <section class="center reviews">
                 <h2 class="reviews__title">Отзывы клиентов</h2>
-                <div class="slider">
-                    <button class="slider__arrow">
+                <div class="slider slider-1">
+                    <button
+                        class="slider__arrow custom_slider__arrow custom_slider__arrow--prev"
+                    >
                         <svg
                             width="17"
                             height="31"
@@ -232,7 +239,7 @@
                         </svg>
                     </button>
                     <div class="slider__list">
-                        <div class="slider__elem slider__elem--active">
+                        <div class="slider__elem slider">
                             <article class="reviews__item">
                                 <div class="reviews__photo">
                                     <img
@@ -262,6 +269,80 @@
                                 </div>
                                 <div class="reviews__name">Арина, 20 лет</div>
                                 <p class="reviews__text">
+                                    Обратилась к Андрею, потому что нервы уже
+                                    были на пределе. Ситуация казалась мне
+                                    безвыходной – несмотря на то, что я работаю
+                                    и учусь. Сама не заметила, как избавилась от
+                                    огромного кома. Наконец-то увидела выход из
+                                    сложившейся ситуации и теперь есть
+                                    надежда... Большое спасибо Константину.
+                                </p>
+                            </article>
+                        </div>
+                        <div class="slider__elem slider">
+                            <article class="reviews__item">
+                                <div class="reviews__photo">
+                                    <img
+                                        src="img/reviews-girl3.jpg"
+                                        alt="Рина"
+                                    />
+                                </div>
+                                <div class="reviews__name">Рина, 30 лет</div>
+                                <p class="reviews__text">
+                                    Обратилась к Алексею, потому что нервы уже
+                                    были на пределе. Ситуация казалась мне
+                                    безвыходной – несмотря на то, что я работаю
+                                    и учусь. Сама не заметила, как избавилась от
+                                    огромного кома. Наконец-то увидела выход из
+                                    сложившейся ситуации и теперь есть
+                                    надежда... Большое спасибо Венеамину.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <button
+                        class="slider__arrow custom_slider__arrow custom_slider__arrow--next"
+                    >
+                        <svg
+                            width="17"
+                            height="31"
+                            viewBox="0 0 17 31"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M16.3884 16.89L3.56511 29.9182C2.7494 30.7473 1.42686 30.7473 0.611538 29.9182C-0.203846 29.0897 -0.203846 27.7461 0.611538 26.9177L11.9581 15.3898L0.611868 3.86229C-0.203516 3.03352 -0.203516 1.69001 0.611868 0.86157C1.42725 0.0327972 2.74973 0.0327972 3.56544 0.86157L16.3887 13.8899C16.7964 14.3043 17 14.8469 17 15.3897C17 15.9328 16.796 16.4758 16.3884 16.89Z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div class="slider slider-2">
+                    <button
+                        class="slider__arrow custom_slider__arrow custom_slider__arrow--prev"
+                    >
+                        <svg
+                            width="17"
+                            height="31"
+                            viewBox="0 0 17 31"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M0.611637 13.8199L13.4349 0.791803C14.2506 -0.0373707 15.5731 -0.0373707 16.3885 0.791803C17.2038 1.62024 17.2038 2.96388 16.3885 3.79226L5.04186 15.3202L16.3881 26.8477C17.2035 27.6764 17.2035 29.02 16.3881 29.8484C15.5727 30.6772 14.2503 30.6772 13.4346 29.8484L0.611307 16.8201C0.203615 16.4056 0 15.8631 0 15.3202C0 14.7771 0.204012 14.2342 0.611637 13.8199Z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="slider__list">
+                        <div class="slider__elem slider">
+                            <article class="reviews__item">
+                                <div class="reviews__photo">
+                                    <img
+                                        src="img/reviews-girl1.jpg"
+                                        alt="Марина"
+                                    />
+                                </div>
+                                <div class="reviews__name">Марина, 25 лет</div>
+                                <p class="reviews__text">
                                     Обратилась к Сергею, потому что нервы уже
                                     были на пределе. Ситуация казалась мне
                                     безвыходной – несмотря на то, что я работаю
@@ -276,24 +357,46 @@
                             <article class="reviews__item">
                                 <div class="reviews__photo">
                                     <img
-                                        src="img/reviews-girl3.jpg"
-                                        alt="Карина"
+                                        src="img/reviews-girl2.jpg"
+                                        alt="Арина"
                                     />
                                 </div>
-                                <div class="reviews__name">Карина, 30 лет</div>
+                                <div class="reviews__name">Арина, 20 лет</div>
                                 <p class="reviews__text">
-                                    Обратилась к Сергею, потому что нервы уже
+                                    Обратилась к Андрею, потому что нервы уже
                                     были на пределе. Ситуация казалась мне
                                     безвыходной – несмотря на то, что я работаю
                                     и учусь. Сама не заметила, как избавилась от
                                     огромного кома. Наконец-то увидела выход из
                                     сложившейся ситуации и теперь есть
-                                    надежда... Большое спасибо Валентину.
+                                    надежда... Большое спасибо Константину.
+                                </p>
+                            </article>
+                        </div>
+                        <div class="slider__elem slider">
+                            <article class="reviews__item">
+                                <div class="reviews__photo">
+                                    <img
+                                        src="img/reviews-girl3.jpg"
+                                        alt="Рина"
+                                    />
+                                </div>
+                                <div class="reviews__name">Рина, 30 лет</div>
+                                <p class="reviews__text">
+                                    Обратилась к Алексею, потому что нервы уже
+                                    были на пределе. Ситуация казалась мне
+                                    безвыходной – несмотря на то, что я работаю
+                                    и учусь. Сама не заметила, как избавилась от
+                                    огромного кома. Наконец-то увидела выход из
+                                    сложившейся ситуации и теперь есть
+                                    надежда... Большое спасибо Венеамину.
                                 </p>
                             </article>
                         </div>
                     </div>
-                    <button class="slider__arrow">
+                    <button
+                        class="slider__arrow custom_slider__arrow custom_slider__arrow--next"
+                    >
                         <svg
                             width="17"
                             height="31"
@@ -644,5 +747,16 @@
                 </li>
             </ul>
         </footer>
+        <div class="modal" id="more">
+            <div class="modal__content">
+                <button class="modal__close">x</button>
+                <h6 class="modal__title">Заголовок</h6>
+                <p class="modal__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aliquam deserunt atque facilis natus, beatae veritatis quas.
+                </p>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
     </body>
 </html>
