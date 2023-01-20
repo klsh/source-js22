@@ -104,6 +104,10 @@ img {
     background: none;
     cursor: pointer;
 }
+.slider__arrow--off {
+    opacity: 0;
+    pointer-events: none;
+}
 .slider__arrow svg {
     fill: #adddde;
 }
@@ -713,6 +717,10 @@ img {
     margin: 0;
     transform: translateX(-50%);
 }
+.custom_slider__dots--off {
+    opacity: 0;
+    pointer-events: none;
+}
 .custom_slider__dot {
     display: flex;
     align-items: center;
@@ -745,4 +753,6 @@ img {
     opacity: 1;
     transition: 0.5s;
 }
-/* custom slider */
+.slider__arrow
+    custom_slider__arrow
+    custom_slider__arrow--prev; /* custom slider */
