@@ -488,12 +488,12 @@ img {
     left: 0;
     z-index: 1;
 }
-.contacts__map img {
+.contacts__map > img,
+.contacts__map iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    pointer-events: none;
 }
 .contacts__content {
     position: relative;
@@ -753,6 +753,58 @@ img {
     opacity: 1;
     transition: 0.5s;
 }
-.slider__arrow
-    custom_slider__arrow
-    custom_slider__arrow--prev; /* custom slider */
+/* custom slider */
+
+.notification {
+    position: fixed;
+    right: 20px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 14px;
+    padding: 20px;
+    box-sizing: border-box;
+    bottom: 0;
+    transform: translateY(150%);
+    transition: 0.5s;
+}
+
+.notification.notification--active {
+    bottom: 20px;
+    transform: translateY(0%);
+}
+
+.tabs__item {
+    display: none;
+    padding: 20px 50px;
+}
+
+.tabs__item.tabs__item--active {
+    display: block;
+    background: #adddde;
+}
+
+.tabs_togglers_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.tabs_toggler {
+    border: 1px solid #eee;
+    border-bottom: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+}
+
+.tabs_toggler.tabs_toggler--active {
+    background: #adddde;
+    font-weight: 700;
+    padding: 10px 5px;
+}

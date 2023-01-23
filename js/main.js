@@ -1,5 +1,7 @@
 var header = document.querySelector("#header");
 var offer = document.querySelector(".offer");
+var sections = Array.from(document.querySelectorAll("section"));
+var navLinks = Array.from(document.querySelectorAll(".nav__link"));
 
 document.addEventListener("scroll", function () {
     if (offer.getBoundingClientRect().top < 0) {
@@ -7,6 +9,30 @@ document.addEventListener("scroll", function () {
     } else {
         header.classList.remove("header--fixed");
     }
+
+    sections.forEach((item) => {
+        var currentLink;
+        if (
+            item.getBoundingClientRect().top < 0 &&
+            item.getBoundingClientRect().top * -1 < item.offsetHeight &&
+            !currentLink
+        ) {
+            currentLink = navLinks.find(
+                (link) => link.getAttribute("href") === "#" + item.id
+            );
+            let activeLink = navLinks.find((link) =>
+                link.classList.contains("nav__link--active")
+            );
+            if (activeLink && currentLink && activeLink !== currentLink) {
+                navLinks.forEach((navLink) => {
+                    navLink.classList.remove("nav__link--active");
+                });
+                if (currentLink) {
+                    currentLink.classList.add("nav__link--active");
+                }
+            }
+        }
+    });
 });
 
 document.addEventListener("click", function () {
@@ -196,3 +222,88 @@ function customSlider(sliderClassName, dotsOff, circleOff) {
 
 customSlider(".slider-1", false, false);
 customSlider(".slider-2", true, true);
+
+function counter(elemClassName) {
+    let counterTarget = document.querySelectorAll(elemClassName);
+    let counted = false;
+
+    document.addEventListener("scroll", function () {
+        for (i = 0; i < counterTarget.length; i++) {
+            if (
+                counterTarget[i].offsetTop - 500 < window.pageYOffset &&
+                !counted
+            ) {
+                startCount(i);
+            }
+        }
+    });
+
+    function startCount(index) {
+        let current = 0;
+        let target = counterTarget[index];
+        let max = target.getAttribute("data-max");
+
+        let counterId = setInterval(function () {
+            if (current <= max) {
+                target.innerText = current;
+                current++;
+            } else {
+                clearInterval(counterId);
+                counted = true;
+            }
+        }, 1000 / max);
+    }
+}
+
+counter(".services__number");
+
+function showNotification(notificationId) {
+    let target = document.querySelector(notificationId);
+    setTimeout(function () {
+        target.classList.add("notification--active");
+        setTimeout(function () {
+            target.classList.remove("notification--active");
+        }, 6000);
+    }, 5000);
+}
+
+showNotification("#test");
+
+function tabs(tabsId) {
+    let tabsParent = document.querySelector(tabsId);
+    let tabsContents = tabsParent.children;
+
+    let ul = document.createElement("ul");
+    ul.classList.add("tabs_togglers_list");
+
+    Array.from(tabsContents).forEach((item, index) => {
+        let li = document.createElement("li");
+        let button = document.createElement("button");
+        button.classList.add("tabs_toggler");
+        button.innerText = item.title;
+        button.setAttribute("data-index", index);
+        if (index === 0) {
+            button.classList.add("tabs_toggler--active");
+        }
+        li.appendChild(button);
+        ul.appendChild(li);
+    });
+
+    ul.addEventListener("click", function () {
+        if (event.target.classList.contains("tabs_toggler")) {
+            Array.from(tabsContents).forEach((item) => {
+                item.classList.remove("tabs__item--active");
+            });
+            Array.from(ul.querySelectorAll(".tabs_toggler")).forEach((item) => {
+                item.classList.remove("tabs_toggler--active");
+            });
+            event.target.classList.add("tabs_toggler--active");
+            tabsContents[event.target.getAttribute("data-index")].classList.add(
+                "tabs__item--active"
+            );
+        }
+    });
+    tabsParent.parentNode.insertBefore(ul, tabsParent);
+}
+
+tabs("#tabs1");
